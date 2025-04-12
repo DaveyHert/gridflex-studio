@@ -4,14 +4,6 @@ A modern, interactive web application for generating and visualizing CSS layouts
 
 ![CSS Layout Generator Screenshot](public/screenshot.png)
 
-## Author 👨‍💻
-
-- **Name**: Davey Hert
-- **GitHub**: [daveyhert](https://github.com/daveyhert)
-- **Twitter**: [@daveyhert](https://x.com/daveyhert)
-- **LinkedIn**: [Davey Hert](https://www.linkedin.com/in/daveyhert/)
-- **Location**: United States
-
 ## Features ✨
 
 - **Interactive Layout Generation**: Create and visualize CSS layouts in real-time
@@ -112,7 +104,7 @@ If you find this project helpful, please consider giving it a ⭐️ on GitHub!
 
 ## Contact 📧
 
-For any questions or suggestions, feel free to reach out:
+For any questions, suggestions, feel free to reach out:
 
 - GitHub: [@daveyhert](https://github.com/daveyhert)
 - Twitter: [@daveyhert](https://x.com/daveyhert)
