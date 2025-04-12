@@ -13,7 +13,6 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
-    port: 3000,
     host: true,
   },
   resolve: {
