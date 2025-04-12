@@ -1,26 +1,26 @@
-import React from 'react';
-import { useLayout } from '@/context/LayoutContext';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
-import { Smartphone, Monitor } from 'lucide-react';
-import CodeView from './CodeView';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from "react";
+import { useLayout } from "@/context/LayoutContext";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Smartphone, Monitor } from "lucide-react";
+import CodeView from "./CodeView";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PreviewPanel: React.FC = () => {
-  const { 
-    layoutType, 
-    flexboxProps, 
-    gridProps, 
-    flexItems, 
+  const {
+    layoutType,
+    flexboxProps,
+    gridProps,
+    flexItems,
     gridItems,
     previewMode,
-    setPreviewMode
+    setPreviewMode,
   } = useLayout();
 
   // Generate CSS for the container
   const getContainerStyle = () => {
-    if (layoutType === 'flexbox') {
+    if (layoutType === "flexbox") {
       return {
         display: flexboxProps.display,
         flexDirection: flexboxProps.flexDirection,
@@ -43,7 +43,7 @@ const PreviewPanel: React.FC = () => {
   };
 
   // Generate CSS for flex items
-  const getFlexItemStyle = (item: any, index: number) => {
+  const getFlexItemStyle = (item: any) => {
     return {
       flexGrow: item.flexGrow,
       flexShrink: item.flexShrink,
@@ -68,43 +68,43 @@ const PreviewPanel: React.FC = () => {
   // Animation variants for container transitions
   const containerVariants = {
     initial: { opacity: 0 },
-    animate: { 
+    animate: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.5, // Slower duration
         when: "beforeChildren",
-        staggerChildren: 0.1 // Increased stagger time
-      }
+        staggerChildren: 0.1, // Increased stagger time
+      },
     },
-    exit: { 
+    exit: {
       opacity: 0,
-      transition: { 
+      transition: {
         duration: 0.4, // Slower exit
         when: "afterChildren",
         staggerChildren: 0.1, // Increased stagger time
-        staggerDirection: -1
-      }
-    }
+        staggerDirection: -1,
+      },
+    },
   };
 
   // Animation variants for items
   const itemVariants = {
     initial: { scale: 0.9, opacity: 0 },
-    animate: { 
-      scale: 1, 
+    animate: {
+      scale: 1,
       opacity: 1,
-      transition: { 
-        type: "spring", 
+      transition: {
+        type: "spring",
         damping: 15, // More damping for slower, smoother motion
         stiffness: 80, // Less stiffness for slower motion
-        duration: 0.6 // Longer duration
-      }
+        duration: 0.6, // Longer duration
+      },
     },
-    exit: { 
-      scale: 0.9, 
+    exit: {
+      scale: 0.9,
       opacity: 0,
-      transition: { duration: 0.4 } // Slower exit
-    }
+      transition: { duration: 0.4 }, // Slower exit
+    },
   };
 
   return (
@@ -114,24 +114,26 @@ const PreviewPanel: React.FC = () => {
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="preview" className="flex-1 p-0 m-0">
           <div className="flex items-center justify-end gap-2 p-2 border-b border-border">
-            <span className="text-xs text-muted-foreground mr-2">Device Preview:</span>
+            <span className="text-xs text-muted-foreground mr-2">
+              Device Preview:
+            </span>
             <Button
-              variant={previewMode === 'desktop' ? 'default' : 'outline'}
+              variant={previewMode === "desktop" ? "default" : "outline"}
               size="sm"
               className="h-8 px-2"
-              onClick={() => setPreviewMode('desktop')}
+              onClick={() => setPreviewMode("desktop")}
             >
               <Monitor className="h-4 w-4 mr-1" />
               <span>Desktop</span>
             </Button>
             <Button
-              variant={previewMode === 'mobile' ? 'default' : 'outline'}
+              variant={previewMode === "mobile" ? "default" : "outline"}
               size="sm"
               className="h-8 px-2"
-              onClick={() => setPreviewMode('mobile')}
+              onClick={() => setPreviewMode("mobile")}
             >
               <Smartphone className="h-4 w-4 mr-1" />
               <span>Mobile</span>
@@ -139,24 +141,24 @@ const PreviewPanel: React.FC = () => {
           </div>
           <ScrollArea className="h-full p-6 custom-scrollbar">
             <div className="h-full flex items-center justify-center">
-              <motion.div 
+              <motion.div
                 className={`bg-card relative ${
-                  previewMode === 'mobile' 
-                    ? 'w-[375px] rounded-[2rem] border-8 border-muted p-0 pt-6 pb-6' 
-                    : 'w-full max-w-3xl rounded-lg border border-border p-4'
+                  previewMode === "mobile"
+                    ? "w-[375px] rounded-[2rem] border-8 border-muted p-0 pt-6 pb-6"
+                    : "w-full max-w-3xl rounded-lg border border-border p-4"
                 }`}
                 layout
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-                {previewMode === 'mobile' && (
+                {previewMode === "mobile" && (
                   <div className="absolute top-1.5 left-0 right-0 flex justify-center">
                     <div className="w-16 h-1.5 bg-muted-foreground/30 rounded-full" />
                   </div>
                 )}
-                <div className={previewMode === 'mobile' ? 'px-2' : ''}>
+                <div className={previewMode === "mobile" ? "px-2" : ""}>
                   <AnimatePresence mode="wait">
                     {/* Flexbox Preview */}
-                    {layoutType === 'flexbox' && (
+                    {layoutType === "flexbox" && (
                       <motion.div
                         key="flexbox-container"
                         className="min-h-[250px] p-4 border-2 border-dashed border-primary/40 rounded"
@@ -172,7 +174,7 @@ const PreviewPanel: React.FC = () => {
                             <motion.div
                               key={item.id}
                               className="flex-preview-item bg-primary/20 p-4 rounded flex items-center justify-center"
-                              style={getFlexItemStyle(item, index)}
+                              style={getFlexItemStyle(item)}
                               variants={itemVariants}
                               layout
                               layoutId={`item-${item.id}`}
@@ -180,19 +182,21 @@ const PreviewPanel: React.FC = () => {
                                 layout: {
                                   type: "spring",
                                   damping: 20,
-                                  stiffness: 300
-                                }
+                                  stiffness: 300,
+                                },
                               }}
                             >
-                              <span className="text-primary font-mono">#{index + 1}</span>
+                              <span className="text-primary font-mono">
+                                #{index + 1}
+                              </span>
                             </motion.div>
                           ))}
                         </AnimatePresence>
                       </motion.div>
                     )}
-                    
+
                     {/* Grid Preview */}
-                    {layoutType === 'grid' && (
+                    {layoutType === "grid" && (
                       <motion.div
                         key="grid-container"
                         className="min-h-[250px] p-4 border-2 border-dashed border-secondary/40 rounded"
@@ -216,11 +220,13 @@ const PreviewPanel: React.FC = () => {
                                 layout: {
                                   type: "spring",
                                   damping: 20,
-                                  stiffness: 300
-                                }
+                                  stiffness: 300,
+                                },
                               }}
                             >
-                              <span className="text-secondary font-mono">#{index + 1}</span>
+                              <span className="text-secondary font-mono">
+                                #{index + 1}
+                              </span>
                             </motion.div>
                           ))}
                         </AnimatePresence>
@@ -232,7 +238,7 @@ const PreviewPanel: React.FC = () => {
             </div>
           </ScrollArea>
         </TabsContent>
-        
+
         <TabsContent value="code" className="flex-1 p-0 m-0">
           <CodeView />
         </TabsContent>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLayout } from "@/context/LayoutContext";
 import { generateHTML, generateCSS } from "@/utils/generateCode";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Check, Copy } from "lucide-react";
