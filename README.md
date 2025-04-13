@@ -1,8 +1,9 @@
-# CSS Layout Generator 🎨
+# FlexGrid Studio 🎨
 
 A modern, interactive web application for generating and visualizing CSS layouts using Flexbox and Grid. Built with React, TypeScript, and Tailwind CSS.
 
-![CSS Layout Generator Screenshot](public/flexgrid-studio.png)
+![FlexGrid Screenshot](public/flexgrid-studio.png)
+[preview live Demo](https://flexgridstudio.netlify.app/)
 
 ## Features ✨
 
