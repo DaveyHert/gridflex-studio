@@ -29,8 +29,8 @@ A modern, interactive web application for generating and visualizing CSS layouts
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/daveyhert/css-layout-generator.git
-   cd css-layout-generator
+   git clone https://github.com/daveyhert/flexgrid-studio.git
+   cd flexgrid-studio
    ```
 
 2. **Install dependencies**
@@ -46,7 +46,7 @@ A modern, interactive web application for generating and visualizing CSS layouts
    ```
 
 4. **Open your browser**
-   Visit `http://localhost:3000` to see the application in action.
+   Visit `http://localhost:5173` to see the application in action.
 
 ## Usage Guide 📖
 
